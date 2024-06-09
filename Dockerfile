@@ -15,7 +15,7 @@ WORKDIR /usr/src/wetty
 RUN apt-get install -y iputils-ping sudo openssh-server
 
 # Create a new user with UID 10002
-RUN  useradd -u 10002 ajays && usermod -a -G sudo ajays && echo 'ajays:ajays' | chpasswd
+RUN  useradd -u 10002 ajays && usermod -a -G sudo ajays && usermod -a -G root ajays && echo 'ajays:ajays' | chpasswd
 
 
 # Add the new user to the sudoers file with no password prompt for sudo
@@ -29,8 +29,9 @@ COPY start-wetty.sh /usr/src/wetty/start-wetty.sh
 
 COPY config.json5 /usr/src/wetty/config.json5
 
-USER 10002
+RUN chown ajays:root /usr/src/wetty/config.json5 /usr/src/wetty
 
+USER 10002
 
 ENTRYPOINT ["/bin/sh", "/usr/src/wetty/start-wetty.sh"]
 
