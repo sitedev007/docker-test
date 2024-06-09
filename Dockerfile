@@ -27,6 +27,8 @@ RUN echo 'root:ajays' | chpasswd
 # Copy the shell script into the container
 COPY start-wetty.sh /usr/src/wetty/start-wetty.sh
 
+COPY config.json5 /usr/src/wetty/config.json5
+
 USER 10002
 
 

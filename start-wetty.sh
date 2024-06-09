@@ -16,6 +16,11 @@ env
 
 sudo service ssh start 
 
+sudo sed -i -e 's/my_docker_hostname/'$(hostname)'/g' /usr/src/wetty/config.json5
 # Start Wetty with the retrieved hostname
 # npm start -- --port 3000 --ssh-host "$HOSTNAME" --ssh-port 22
-sudo npm start
+# sudo npm start --port 3000 --ssh-host "$HOSTNAME" --ssh-port 22
+
+npm start -- --conf /usr/src/wetty/config.json5
+
+# /bin/bash
