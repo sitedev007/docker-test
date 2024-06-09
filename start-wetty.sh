@@ -11,7 +11,7 @@ echo "Using SSH Host: $HOSTNAME"
 # Debugging information
 echo "User: $(whoami)"
 echo "Home Directory: $HOME"
-ls -l /usr/src/app
+ls -l /usr/src/wetty
 env
 
 sudo service ssh start 
