@@ -18,4 +18,4 @@ sudo service ssh start
 
 # Start Wetty with the retrieved hostname
 # npm start -- --port 3000 --ssh-host "$HOSTNAME" --ssh-port 22
-npm start
+sudo npm start
